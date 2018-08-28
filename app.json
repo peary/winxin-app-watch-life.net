@@ -16,8 +16,8 @@
     ],
     "window": {
         "backgroundTextStyle": "dark",
-        "navigationBarBackgroundColor": "#118fff",
-        "navigationBarTitleText": "守望轩",
+        "navigationBarBackgroundColor": "#363636",
+        "navigationBarTitleText": "纸飞机",
         "navigationBarTextStyle": "white"
     },
     "tabBar": {
@@ -33,6 +33,12 @@
                 "text": "首页"
             },
             {
+                "pagePath": "pages/hot/hot",
+                "iconPath": "images/tar-about.png",
+                "selectedIconPath": "images/tar-about-on.png",
+                "text": "热门"
+            },
+            {
                 "pagePath": "pages/topic/topic",
                 "iconPath": "images/tar-topic.png",
                 "selectedIconPath": "images/tar-topic-on.png",
@@ -43,12 +49,6 @@
                 "iconPath": "images/tar-person.png",
                 "selectedIconPath": "images/tar-person-on.png",
                 "text": "我的"
-            },
-            {
-                "pagePath": "pages/about/about",
-                "iconPath": "images/tar-about.png",
-                "selectedIconPath": "images/tar-about-on.png",
-                "text": "关于"
             }
         ]
     },

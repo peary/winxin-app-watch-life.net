@@ -1,14 +1,3 @@
-/*
- * 
- * WordPres版微信小程序
- * author: jianbo
- * organization: 守望轩  www.watch-life.net
- * github:    https://github.com/iamxjb/winxin-app-watch-life.net
- * 技术支持微信号：iamxjb
- * 开源协议：MIT
- * Copyright (c) 2017 https://www.watch-life.net All rights reserved.
- */
-
 
 import config from 'config.js'
 
@@ -17,7 +6,7 @@ var pageCount = config.getPageCount;
 var categoriesID = config.getCategoriesID;
 var indexListType = config.getIndexListType;
 var HOST_URI = 'https://' + domain+'/wp-json/wp/v2/';
-var HOST_URI_WATCH_LIFE_JSON = 'https://' + domain + '/wp-json/watch-life-net/v1/';
+var HOST_URI_CUSTOM_JSON = 'https://' + domain + '/wp-json/custom/v1/';
    
 module.exports = {  
   // 获取文章列表数据
@@ -54,14 +43,14 @@ module.exports = {
   
   //获取首页滑动文章
   getSwiperPosts: function () {
-      var url = HOST_URI_WATCH_LIFE_JSON;
+      var url = HOST_URI_CUSTOM_JSON;
       url +='post/swipe';
       return url;
   },
 
   //获取是否开启评论的设置
   getEnableComment: function () {
-      var url = HOST_URI_WATCH_LIFE_JSON;
+      var url = HOST_URI_CUSTOM_JSON;
       url += 'options/enableComment';
       return url;
   },
@@ -132,7 +121,7 @@ module.exports = {
 
   //获取文章评论及其回复
   getCommentsReplay: function (obj) {
-      var url = HOST_URI_WATCH_LIFE_JSON;
+      var url = HOST_URI_CUSTOM_JSON;
       url += 'comment/getcomments?postid=' + obj.postId + '&limit=' + obj.limit + '&page=' + obj.page + '&order=desc';
       return url;
   },
@@ -160,13 +149,13 @@ module.exports = {
 
   //提交微信评论
   postWeixinComment: function () {
-    var url = HOST_URI_WATCH_LIFE_JSON;
+    var url = HOST_URI_CUSTOM_JSON;
     return url + 'comment/add'
   }, 
 
   //获取微信评论
   getWeixinComment: function (openid) {
-      var url = HOST_URI_WATCH_LIFE_JSON;
+      var url = HOST_URI_CUSTOM_JSON;
       return url + 'comment/get?openid=' + openid;
   },    
 
@@ -183,14 +172,14 @@ module.exports = {
 
  //获取热点文章
   getTopHotPosts(flag){      
-      var url = HOST_URI_WATCH_LIFE_JSON;
+      var url = HOST_URI_CUSTOM_JSON;
       if(flag ==1)
       {
-          url +="post/hotpostthisyear"
+          url += "post/pageviewsthisyear"
       }
       else if(flag==2)
       {
-          url += "post/pageviewsthisyear"
+          url +="post/hotpostthisyear"
       }
       else if (flag == 3) {
           url += "post/likethisyear"
@@ -204,34 +193,34 @@ module.exports = {
 
   //更新文章浏览数
   updatePageviews(id) {
-      var url = HOST_URI_WATCH_LIFE_JSON;
+      var url = HOST_URI_CUSTOM_JSON;
       url += "post/addpageview/"+id;
       return url;
   },
   //获取用户openid
   getOpenidUrl(id) {
-    var url = HOST_URI_WATCH_LIFE_JSON;
+    var url = HOST_URI_CUSTOM_JSON;
     url += "weixin/getopenid";
     return url;
   },
 
   //点赞
   postLikeUrl() {
-    var url = HOST_URI_WATCH_LIFE_JSON;
+    var url = HOST_URI_CUSTOM_JSON;
     url += "post/like";
     return url;
   },
 
   //判断当前用户是否点赞
   postIsLikeUrl() {
-    var url = HOST_URI_WATCH_LIFE_JSON;
+    var url = HOST_URI_CUSTOM_JSON;
     url += "post/islike";
     return url;
   },
 
   //获取我的点赞
   getMyLikeUrl(openid) {
-      var url = HOST_URI_WATCH_LIFE_JSON;
+      var url = HOST_URI_CUSTOM_JSON;
       url += "post/mylike?openid=" + openid;
       return url;
   },
@@ -244,55 +233,55 @@ module.exports = {
 
   //更新赞赏数据
   updatePraiseUrl() {
-    var url = HOST_URI_WATCH_LIFE_JSON;
+    var url = HOST_URI_CUSTOM_JSON;
     url += "post/praise";
     return url;
   },
 
   //获取我的赞赏数据
   getMyPraiseUrl(openid) {
-      var url = HOST_URI_WATCH_LIFE_JSON;
+      var url = HOST_URI_CUSTOM_JSON;
       url += "post/mypraise?openid=" + openid;
       return url;
   },
 
   //获取所有的赞赏数据
   getAllPraiseUrl() {
-      var url = HOST_URI_WATCH_LIFE_JSON;
+      var url = HOST_URI_CUSTOM_JSON;
       url += "post/allpraise";
       return url;
   },
 
   //发送模版消息
   sendMessagesUrl() {
-      var url = HOST_URI_WATCH_LIFE_JSON;
+      var url = HOST_URI_CUSTOM_JSON;
       url += "weixin/sendmessage";
       return url;
   },
   //获取订阅的分类
   getSubscription() {
-      var url = HOST_URI_WATCH_LIFE_JSON;
+      var url = HOST_URI_CUSTOM_JSON;
       url += "category/getsubscription";
       return url;
   },
 
   //订阅的分类
   postSubscription() {
-      var url = HOST_URI_WATCH_LIFE_JSON;
+      var url = HOST_URI_CUSTOM_JSON;
       url += "category/postsubscription";
       return url;
   },
 
   //删除订阅的分类
   delSubscription() {
-      var url = HOST_URI_WATCH_LIFE_JSON;
+      var url = HOST_URI_CUSTOM_JSON;
       url += "category/delSubscription";
       return url;
   },
 
   //生成海报
   creatPoster() {
-      var url = HOST_URI_WATCH_LIFE_JSON;
+      var url = HOST_URI_CUSTOM_JSON;
       url += "weixin/qrcodeimg";
       return url;
   },
