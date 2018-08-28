@@ -14,13 +14,6 @@ Page({
         floatDisplay: "none",        
     },
     onLoad: function (options) {
-        wx.setNavigationBarTitle({
-            title: config.getWebsiteName+'-专题',
-            success: function (res) {
-                // success
-            }
-        });
-        
         this.fetchCategoriesData();
     },
     onShow:function(){            
