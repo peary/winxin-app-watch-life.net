@@ -59,7 +59,7 @@ Page({
   },
   onShareAppMessage: function () {
     return {
-      title: '“' + config.getWebsiteName+'”网站微信小程序,基于WordPress版小程序构建.技术支持：www.watch-life.net',
+      title: config.getWebsiteName+' 小程序，为您精选价值头条，飞机刷起来！',
       path: 'pages/index/index',
       success: function (res) {
         // 转发成功
