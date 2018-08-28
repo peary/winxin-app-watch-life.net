@@ -14,7 +14,7 @@ Page({
     readLogs: [],
     topBarItems: [
         // id name selected 选中状态
-        { id: '1', name: '浏览', selected: true },
+        { id: '1', name: '浏览', selected: true},
         { id: '2', name: '评论', selected: false},
         { id: '3', name: '点赞', selected: false },
         { id: '4', name: '赞赏', selected: false },
@@ -26,28 +26,28 @@ Page({
     shownodata:"none",
     subscription:"",
     userInfo: app.globalData.userInfo,
-    isLoginPopup: false  
+    isLoginPopup: false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {  
+  onLoad: function (options) {
     var self = this;
     if (!app.globalData.isGetOpenid) {
         //self.getUsreInfo();
-        self.userAuthorization();     
+        self.userAuthorization();
     }
     else
     {
         self.setData({
             userInfo: app.globalData.userInfo
         });
-    } 
+    }
     self.fetchPostsData('1');
-    
+
   },
-  
+
 
   // 跳转至查看文章详情
   redictDetail: function (e) {
@@ -64,7 +64,7 @@ Page({
         url = '../detail/detail?id=' + id;
 
     }
-      
+
     wx.navigateTo({
       url: url
     })
@@ -73,7 +73,7 @@ Page({
       var self = this;
       var tab = e.currentTarget.id;
       var topBarItems = self.data.topBarItems;
-      // 切换topBarItem 
+      // 切换topBarItem
       for (var i = 0; i < topBarItems.length; i++) {
           if (tab == topBarItems[i].id) {
               topBarItems[i].selected = true;
@@ -93,7 +93,7 @@ Page({
       }
   },
   onShareAppMessage: function () {
-      var title = "分享我在“" + config.getWebsiteName + "浏览、评论、点赞、赞赏的文章";
+      var title = "分享我在" + config.getWebsiteName + "浏览、评论、点赞、赞赏的文章";
       var path = "pages/readlog/readlog";
       return {
           title: title,
@@ -111,7 +111,7 @@ Page({
       self.setData({
           showerror: 'none',
           shownodata:'none'
-      }); 
+      });
      var count =0;
       if (tab == '1')
       {
@@ -124,15 +124,15 @@ Page({
 
           self.setData({
               userInfo: app.globalData.userInfo
-          }); 
+          });
 
           if (count == 0) {
               self.setData({
                   shownodata: 'block'
               });
-          } 
+          }
 
-          
+
       }
       else if (tab == '2')
        {
@@ -175,9 +175,9 @@ Page({
           else
           {
               self.userAuthorization();
-          }          
+          }
 
-       } 
+       }
 
       else if (tab == '3') {
           self.setData({
@@ -199,13 +199,13 @@ Page({
                       });
                       self.setData({
                           userInfo: app.globalData.userInfo
-                      }); 
+                      });
 
                       if (count == 0) {
                           self.setData({
                               shownodata: 'block'
                           });
-                      } 
+                      }
                   }
                   else {
                       console.log(response);
@@ -242,13 +242,13 @@ Page({
                     });
                     self.setData({
                         userInfo: app.globalData.userInfo
-                    }); 
+                    });
 
                     if (count == 0) {
                         self.setData({
                             shownodata: 'block'
                         });
-                    } 
+                    }
                 }
                 else {
                     console.log(response);
@@ -263,7 +263,7 @@ Page({
         else {
             self.userAuthorization();
         }
-        
+
 
     }
       else if (tab == '5') {
@@ -274,7 +274,7 @@ Page({
 
               var openid = app.globalData.openid;
               var url = Api.getSubscription() + '?openid=' + app.globalData.openid;
-              var getMysubPost = wxRequest.getRequest(url);              
+              var getMysubPost = wxRequest.getRequest(url);
               getMysubPost.then(response => {
                   if (response.statusCode == 200) {
                       var usermetaList = response.data.usermetaList;
@@ -291,7 +291,7 @@ Page({
                           });
 
                       }
-                      
+
                       self.setData({
                           userInfo: app.globalData.userInfo
                       });
@@ -315,14 +315,14 @@ Page({
               self.userAuthorization();
           }
 
-          
+
       }
       else if (tab == '6'){
           self.setData({
               readLogs: []
           });
 
-          
+
           var getNewComments = wxRequest.getRequest(Api.getNewComments());
           getNewComments.then(response => {
               if (response.statusCode == 200) {
@@ -357,7 +357,7 @@ Page({
 
           })
       }
-  },  
+  },
   userAuthorization: function () {
       var self = this;
       // 判断是否是第一次授权，非第一次授权且授权失败则进行提醒
@@ -468,7 +468,7 @@ Page({
                     else {
                         console.log(response.data.message);
                     }
-                })                
+                })
             }).catch(function (error) {
                 console.log('error: ' + error.errMsg);
                 self.userAuthorization();
@@ -485,12 +485,12 @@ Page({
                     self.setData({
                         subscription: _subscription
                     });
-                }                
+                }
             })
         }
         else {
             self.userAuthorization();
         }
 
-    } 
+    }
 })

@@ -67,7 +67,7 @@ Page({
     },
     onShareAppMessage: function () {
         return {
-            title: '分享“' + config.getWebsiteName + '”的专题栏目.',
+            title: '分享' + config.getWebsiteName + '的专题栏目.',
             path: 'pages/topic/topic',
             success: function (res) {
                 // 转发成功
