@@ -12,9 +12,9 @@ var INDEXLISTTYPE="all" //首页显示所有分类
 //var INDEXLISTTYPE ="1" //指定首页显示分类的id
 var PAYTEMPPLATEID = 'hzKpxuPF2rw7O-qTElkeoE0lMwr0O4t9PJkLyt6v8rk';//赞赏消息模版id
 var REPLAYTEMPPLATEID = 'IiAVoBWP34u1uwt801rI_Crgen7Xl2lvAGP67ofJLo8';//回复评论消息模版id
-var ZANIMAGEURL = 'https://www.watch-life.net/images/2017/07/zsm400.jpg';//微信赞赏的图片链接，用于个人小程序的赞赏
-var LOGO = "../../images/logo-icon.png"; // 网站的logo图片
-var POSTERIMGURL ="../../images/logo700.png"; //生成海报如果没有首图，使用此处设置的图片作为海报图片。
+var ZANIMAGEURL = 'https://blockshare.top/wechatpay.png';//微信赞赏的图片链接，用于个人小程序的赞赏
+var LOGO = "../../images/zhifeiji_logo_s.jpg"; // 网站的logo图片
+var POSTERIMGURL ="../../images/coffee.jpg"; //生成海报如果没有首图，使用此处设置的图片作为海报图片。
 //设置downloadFile合法域名,不带https ,在中括号([])里增加域名，格式：{id=**,domain:'www.**.com'}，用英文逗号分隔。
 //此处设置的域名和小程序与小程序后台设置的downloadFile合法域名要一致。
 // var DOWNLOADFILEDOMAIN = [
